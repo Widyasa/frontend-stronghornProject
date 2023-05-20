@@ -12,6 +12,7 @@
           open = false;
           $emit('input', option);
         "
+          :value="value"
       >
         {{ option }}
       </div>
@@ -36,6 +37,10 @@ export default {
       required: false,
       default: 0,
     },
+    value:{
+      type: Array,
+      required:true,
+    }
   },
   data() {
     return {

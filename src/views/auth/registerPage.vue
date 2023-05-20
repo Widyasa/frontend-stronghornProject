@@ -42,7 +42,7 @@
 
 
       <div class="d-flex flex-md-row flex-column gap-4 align-items-center">
-        <button class="btn btn-color w-100" style="max-width: 400px !important;">Login Now</button>
+        <button class="btn btn-color btn-auth w-100" style="max-width: 400px !important;">Login Now</button>
         <p class="text-white ">
           Don’t have account? <span><router-link :to="{name:'register'}" class="main-color link-text">Register</router-link></span>
         </p>
