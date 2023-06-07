@@ -3,19 +3,34 @@
     <div class="d-flex flex-column login-content-wrapper gap-5">
       <div class="row gy-4 w-100">
         <div class="col-md-6 col-12">
-          <input-text input_type="text"  title_input="First Name:" :placeholder="'Enter Fist Name'" />
+          <div class="d-flex flex-column">
+            <p class="text-white">First Name:</p>
+            <input-text input_type="text" :placeholder="'Enter First Name'"  class="mt-3"/>
+          </div>
         </div>
         <div class="col-md-6 col-12">
-          <input-text input_type="text" title_input="Last Name:" :placeholder="'Enter Your Last Name'" />
+          <div class="d-flex flex-column">
+            <p class="text-white">Last Name:</p>
+            <input-text input_type="text" :placeholder="'Enter First Name'"  class="mt-3"/>
+          </div>
         </div>
         <div class="col-md-5 col-12">
-          <input-text input_type="tel" title_input="Phone Number:" :placeholder="'Enter Your Phone Number'"  />
+          <div class="d-flex flex-column">
+            <p class="text-white">Phone Number:</p>
+            <input-text input_type="tel" :placeholder="'Enter Your Phone Number'"  class="mt-3"/>
+          </div>
         </div>
         <div class="col-md-7 col-12">
-          <input-text input_type="email" title_input="Email:" :placeholder="'Enter Your Email'" />
+          <div class="d-flex flex-column">
+            <p class="text-white">Email:</p>
+            <input-text input_type="text" :placeholder="'Enter Your Email'"  class="mt-3"/>
+          </div>
         </div>
         <div class="col-12">
-          <input-text input_type="password" title_input="password:" :placeholder="'Enter Your Password'" />
+          <div class="d-flex flex-column">
+            <p class="text-white">Password:</p>
+            <input-text input_type="password" :placeholder="'Enter Your Password'"  class="mt-3"/>
+          </div>
         </div>
         <div class="col-md-6 col-12">
           <div class="d-flex flex-column">

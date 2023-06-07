@@ -1,11 +1,7 @@
 <template>
-  <div class="d-flex flex-column">
-    <p class="text-white text-capitalize">{{title_input}}</p>
     <div class="input-text-wrapper">
-      <input :type="input_type" v-model="inputModel" class="input-text w-100" :placeholder="placeholderValue"
-             :value="inputValue" @input="updateValue($event.target.value)">
+      <input :type="input_type" class="input-text w-100" :placeholder="placeholderValue" />
     </div>
-  </div>
 </template>
 
 <script>
@@ -16,10 +12,6 @@ export default {
       type:String,
       required:true
     },
-    title_input:{
-      type:String,
-      required: true
-    },
     input_type:{
       type:String,
       required:true,
@@ -27,10 +19,6 @@ export default {
         return ['text', 'number', 'email', 'password', 'tel'].indexOf(value) !== -1
       }
     },
-    value:{
-      type:String,
-      required:true,
-    }
   },
   computed:{
     placeholderValue() {
@@ -48,18 +36,7 @@ export default {
     }
   },
   methods:{
-    updateValue(newValue) {
-      this.inputValue = newValue
-      this.$emit('input', newValue)
 
-    },
-    validateInput() {
-      if (this.type === 'number' && isNaN(Number(this.inputValue))) {
-        this.validInput = false
-      } else {
-        this.validInput = true
-      }
-    }
   }
 
 }
