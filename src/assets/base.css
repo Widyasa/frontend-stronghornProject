@@ -7,8 +7,9 @@
 body{
     background: linear-gradient(116.82deg, #242424 0%, #101010 100%) !important;
      font-family: 'Gothic A1', sans-serif;
-    height:100vh;
-    overflow: hidden;
+    min-height:100vh;
+    height: 100%;
+    overflow-x: hidden;
     color: white !important;
 }
 
