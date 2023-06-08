@@ -8,6 +8,7 @@ import dashboardPage from "@/views/pages/dashboard/dashboardPage.vue";
 import heroIndex from "@/views/pages/landingPage/hero/heroIndex.vue";
 import serviceIndex from "@/views/pages/landingPage/service/serviceIndex.vue";
 import aboutIndex from "@/views/pages/landingPage/about/aboutIndex.vue";
+import membershipIndex from "@/views/pages/landingPage/membership/membershipIndex.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -58,6 +59,11 @@ const router = createRouter({
           path: '/landing/about',
           name:'aboutIndex',
           component: aboutIndex
+        },
+        {
+          path: '/landing/membership',
+          name:'membershipIndex',
+          component: membershipIndex,
         }
       ]
     }

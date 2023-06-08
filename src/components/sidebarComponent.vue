@@ -68,7 +68,7 @@
                 <RouterLink :to="{name:'aboutIndex'}" class="text-white sidebar-accordion text-decoration-none px-0">About</RouterLink>
               </div>
               <div class="mt-3">
-                <RouterLink to="#" class="text-white sidebar-accordion text-decoration-none px-0">Membership</RouterLink>
+                <RouterLink :to="{name:'membershipIndex'}" class="text-white sidebar-accordion text-decoration-none px-0">Membership</RouterLink>
               </div>
               <div class="mt-3">
                 <RouterLink to="#" class="text-white sidebar-accordion text-decoration-none px-0">Benefit</RouterLink>
