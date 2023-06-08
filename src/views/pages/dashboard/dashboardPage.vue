@@ -34,6 +34,9 @@
               <RouterLink :to="{name:'detailOrder'}">
                 <img src="public/img/table/approve-icon.svg" draggable="false" class="icon-table">
               </RouterLink>
+              <RouterLink :to="{name:'detailOrder'}">
+                <img src="public/img/table/delete-icon.svg" draggable="false" class="icon-table">
+              </RouterLink>           
             </td>
           </tr>
           </tbody>

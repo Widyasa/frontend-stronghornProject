@@ -1,6 +1,6 @@
 <template>
     <div class="input-text-wrapper">
-      <input :type="input_type" class="input-text w-100" :placeholder="placeholderValue" />
+      <input :disabled="disabled" :type="input_type"  class="input-text w-100" :placeholder="placeholderValue"/>
     </div>
 </template>
 
@@ -15,10 +15,13 @@ export default {
     input_type:{
       type:String,
       required:true,
-      validator: function(value) {
-        return ['text', 'number', 'email', 'password', 'tel'].indexOf(value) !== -1
-      }
     },
+    disabled:{
+      type: Boolean,
+      default: false
+    }
+    
+
   },
   computed:{
     placeholderValue() {
@@ -27,6 +30,9 @@ export default {
     inputType() {
       return this.input_type
     },
+    ariaDisable(){
+      return this.aria_disable
+    }
 
   },
   data(){

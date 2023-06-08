@@ -1,5 +1,7 @@
 :root{
     --primary-color:#FF823C;
+    --green-color:#22c55e;
+    --red-color:#e13e3d;
 }
 
 body{
@@ -37,7 +39,11 @@ p{
     padding: 14px 20px;
 }
 .btn{
+    font-family: 'Alfa Slab One', cursive !important;
     padding: 8px 16px !important;
+    border-radius: 2px !important;
+    transition: 0.3s !important;
+    color: white !important;
 }
 .main-color{
     background: var(--primary-color);
@@ -46,16 +52,24 @@ p{
     background-clip: text;
     text-fill-color: transparent;
 }
+.btn-crud{
+    padding: 16px 26px !important;
+}
 .btn-color{
-    background:var(--primary-color);
-    border-radius: 2px !important;
-    transition: 0.3s !important;
-    color: white !important;
+    background:var(--primary-color) !important;
+}
+.btn-green{
+    background: var(--green-color) !important;
+}
+.btn-red{
+    background: var(
+        --red-color
+    ) !important;
 }
 .btn-auth{
     font-family: 'Alfa Slab One', cursive !important;
 }
-.btn-color:hover{
+.btn-color:hover,.btn-green:hover,.btn-red:hover{
     filter: brightness(107%);
     color: white;
 }
@@ -412,3 +426,20 @@ tbody tr:nth-child(even){
 }
 
 /*TABLE STYLE END*/
+
+
+/*detail order style start*/
+.icon-back-wrapper{
+    transition: 0.2s;
+    cursor: pointer;
+}
+.icon-back-wrapper:hover .svg-icon path{
+    fill: var(--primary-color) !important;
+}
+.icon-back-wrapper:hover p{
+    color: var(--primary-color);
+}
+/*detail order style end*/
+
+
+/*modal */
