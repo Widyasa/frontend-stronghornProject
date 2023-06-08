@@ -65,7 +65,7 @@
                 <RouterLink :to="{name:'serviceIndex'}" class="text-white sidebar-accordion text-decoration-none px-0">Service</RouterLink>
               </div>
               <div class="mt-3">
-                <RouterLink to="#" class="text-white sidebar-accordion text-decoration-none px-0">About</RouterLink>
+                <RouterLink :to="{name:'aboutIndex'}" class="text-white sidebar-accordion text-decoration-none px-0">About</RouterLink>
               </div>
               <div class="mt-3">
                 <RouterLink to="#" class="text-white sidebar-accordion text-decoration-none px-0">Membership</RouterLink>

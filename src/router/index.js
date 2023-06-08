@@ -7,6 +7,7 @@ import detailOrder from "@/views/pages/dashboard/detailOrder.vue";
 import dashboardPage from "@/views/pages/dashboard/dashboardPage.vue";
 import heroIndex from "@/views/pages/landingPage/hero/heroIndex.vue";
 import serviceIndex from "@/views/pages/landingPage/service/serviceIndex.vue";
+import aboutIndex from "@/views/pages/landingPage/about/aboutIndex.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -52,6 +53,11 @@ const router = createRouter({
           path: '/landing/service',
           name: 'serviceIndex',
           component: serviceIndex,
+        },
+        {
+          path: '/landing/about',
+          name:'aboutIndex',
+          component: aboutIndex
         }
       ]
     }
