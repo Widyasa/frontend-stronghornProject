@@ -5,6 +5,7 @@ import registerPage from "@/views/auth/registerPage.vue";
 import defaultLayout from "@/components/layouts/defaultLayout.vue";
 import detailOrder from "@/views/pages/dashboard/detailOrder.vue";
 import dashboardPage from "@/views/pages/dashboard/dashboardPage.vue";
+import heroIndex from "@/views/pages/landingpage/hero/heroIndex.vue"
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -40,6 +41,11 @@ const router = createRouter({
           name:'detailOrder',
           component: detailOrder,
 
+        },
+        {
+          path:'/hero',
+          name:'heroIndex',
+          component:heroIndex,
         }
       ]
     }
