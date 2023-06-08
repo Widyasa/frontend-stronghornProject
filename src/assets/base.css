@@ -40,7 +40,6 @@ p{
     padding: 14px 20px;
 }
 .btn{
-    font-family: 'Alfa Slab One', cursive !important;
     padding: 8px 16px !important;
     border-radius: 2px !important;
     transition: 0.3s !important;
@@ -54,6 +53,7 @@ p{
     text-fill-color: transparent;
 }
 .btn-crud{
+    font-family: 'Alfa Slab One', cursive !important;
     padding: 16px 26px !important;
 }
 .btn-color{
