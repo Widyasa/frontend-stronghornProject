@@ -1,5 +1,5 @@
 :root{
-    --primary-color:linear-gradient(157.1deg, #FFBF77 0%, #FF733C 100%);
+    --primary-color:#FF823C;
 }
 
 body{
@@ -197,14 +197,14 @@ input:-webkit-autofill:active {
 .menu-wrapper:hover .svg-sidebar defs linearGradient stop:nth-child(1),
 .accordion-menu-wrapper:hover .svg-sidebar defs linearGradient stop:nth-child(1),
 .accordion-menu-wrapper:not(.collapsed) .svg-sidebar defs linearGradient stop:nth-child(1){
-    stop-color:#FFBF77 !important;
+    stop-color:var(--primary-color) !important;
 }
 .menu-wrapper.active .svg-sidebar defs linearGradient stop:nth-child(2),
 .accordion-menu-wrapper.active .svg-sidebar defs linearGradient stop:nth-child(2),
 .menu-wrapper:hover .svg-sidebar defs linearGradient stop:nth-child(2),
 .accordion-menu-wrapper:hover .svg-sidebar defs linearGradient stop:nth-child(2),
 .accordion-menu-wrapper:not(.collapsed) .svg-sidebar defs linearGradient stop:nth-child(2){
-    stop-color:#FF733C !important;
+    stop-color:var(--primary-color) !important;
 }
 .menu-wrapper.active, .menu-wrapper:hover,
 .accordion-menu-wrapper.active, .accordion-menu-wrapper:hover{
@@ -292,3 +292,123 @@ input:-webkit-autofill:active {
     padding: 16px 20px;
 }
 /*card dashboard style*/
+
+/*TABLE STYLE START*/
+.icon-table{
+    transition: 0.2s;
+}
+.icon-table:hover{
+    filter: brightness(112%);
+}
+table{
+    font-size: 14px;
+}
+.dataTables_length,
+.dataTables_filter,
+.dataTables_info{
+    display: none;
+}
+table.dataTable.display>tbody>tr>.sorting_1{
+    box-shadow: none !important;
+}
+table.dataTable.no-footer{
+    border-bottom: none;
+}
+tbody tr td{
+    border: none !important;
+}
+.material-symbols-outlined {
+    border: 1px solid var(--primary-color) !important;
+    color:var(--primary-color);
+    padding: 6px;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: 0.2s;
+}
+.material-symbols-outlined:hover{
+    color: white;
+    background: var(--primary-color);
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button{
+    padding: 3px 12px;
+    transition: 0.2s;
+    border-radius: 5px;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.current,
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover,
+.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover{
+    color: white !important;
+    border-radius: 5px;
+    padding: 3px 12px;
+    background-color: var(--primary-color) !important;
+}
+.dataTables_wrapper .dataTables_paginate{
+    gap: 12px;
+    margin-top: 16px;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.next,
+.dataTables_wrapper .dataTables_paginate .paginate_button.previous{
+    padding: 0;
+    border: 0;
+}
+.dataTables_wrapper .dataTables_paginate .paginate_button.next:hover{
+    background: transparent !important;
+
+}
+
+.col-sm-12 .col-md-7 .dataTables_paginate{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.dataTables_wrapper .dataTables_paginate{
+    display: flex !important;
+    justify-content: center !important;
+    float: none;
+    align-items: center;
+}
+.dataTables_paginate .pagination{
+    gap: 1rem;
+}
+.col-sm-12.col-md-5{
+    display: none;
+}
+table.dataTable>thead .sorting_asc:before, table.dataTable>thead .sorting_desc:after,
+table.dataTable>thead .sorting:after, table.dataTable>thead .sorting_asc:after, table.dataTable>thead .sorting_desc:after, table.dataTable>thead .sorting_asc_disabled:after, table.dataTable>thead .sorting_desc_disabled:after,
+table.dataTable>thead .sorting:before, table.dataTable>thead .sorting_asc:before, table.dataTable>thead .sorting_desc:before, table.dataTable>thead .sorting_asc_disabled:before, table.dataTable>thead .sorting_desc_disabled:before
+{
+    display: none !important;
+}
+table.dataTable.display>tbody>tr>*{
+    box-shadow: none !important;
+}
+.table>:not(caption)>*>* {
+    border: none;
+}
+thead{
+    background-color: var(--primary-color) !important;
+    color: white;
+    font-weight: 400 !important;
+}
+thead tr th{
+    font-weight: normal;
+}
+tbody{
+    color: white;
+}
+table.dataTable.display tbody tr:first-child td{
+    border-top: none;
+}
+
+.content-table{
+    border-radius: 5px;
+}
+tbody tr:nth-child(even){
+    background-color: rgba(247, 247, 247, 0.02) !important;
+    border-radius: 5px;
+}
+.btn-table-grup button{
+    background-color: transparent !important;
+}
+
+/*TABLE STYLE END*/
