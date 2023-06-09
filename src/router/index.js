@@ -11,6 +11,7 @@ import aboutIndex from "@/views/pages/landingPage/about/aboutIndex.vue";
 import membershipIndex from "@/views/pages/landingPage/membership/membershipIndex.vue";
 import benefitIndex from "@/views/pages/landingPage/benefit/benefitIndex.vue";
 import classIndex from "@/views/pages/landingPage/class/classIndex.vue";
+import galleryIndex from "@/views/pages/landingPage/gallery/galleryIndex.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -76,6 +77,11 @@ const router = createRouter({
           path: '/landing/class',
           name:'classIndex',
           component: classIndex
+        },
+        {
+          path: '/landing/gallery',
+          name:'galleryIndex',
+          component: galleryIndex
         }
       ]
     }
