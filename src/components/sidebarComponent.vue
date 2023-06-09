@@ -83,7 +83,7 @@
                 <RouterLink :to="{name:'testimonyIndex'}" class="text-white sidebar-accordion text-decoration-none px-0">Testimonial</RouterLink>
               </div>
               <div class="mt-3">
-                <RouterLink to="#" class="text-white sidebar-accordion text-decoration-none px-0">Footer</RouterLink>
+                <RouterLink :to="{name:'footerIndex'}" class="text-white sidebar-accordion text-decoration-none px-0">Footer</RouterLink>
               </div>
             </div>
           </div>
