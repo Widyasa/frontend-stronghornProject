@@ -80,7 +80,7 @@
                 <RouterLink :to="{name:'galleryIndex'}" class="text-white sidebar-accordion text-decoration-none px-0">Gallery</RouterLink>
               </div>
               <div class="mt-3">
-                <RouterLink to="#" class="text-white sidebar-accordion text-decoration-none px-0">Testimonial</RouterLink>
+                <RouterLink :to="{name:'testimonyIndex'}" class="text-white sidebar-accordion text-decoration-none px-0">Testimonial</RouterLink>
               </div>
               <div class="mt-3">
                 <RouterLink to="#" class="text-white sidebar-accordion text-decoration-none px-0">Footer</RouterLink>
