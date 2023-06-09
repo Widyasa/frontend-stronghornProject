@@ -10,6 +10,7 @@ import serviceIndex from "@/views/pages/landingPage/service/serviceIndex.vue";
 import aboutIndex from "@/views/pages/landingPage/about/aboutIndex.vue";
 import membershipIndex from "@/views/pages/landingPage/membership/membershipIndex.vue";
 import benefitIndex from "@/views/pages/landingPage/benefit/benefitIndex.vue";
+import classIndex from "@/views/pages/landingPage/class/classIndex.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -70,6 +71,11 @@ const router = createRouter({
           path: '/landing/benefit',
           name:'benefitIndex',
           component: benefitIndex
+        },
+        {
+          path: '/landing/class',
+          name:'classIndex',
+          component: classIndex
         }
       ]
     }
