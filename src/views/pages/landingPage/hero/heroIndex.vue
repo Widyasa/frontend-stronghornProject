@@ -4,7 +4,7 @@
       <p class="title-font fs-3 text-uppercase">navbar title</p>
       <div class="mt-3">
         <div class="card-dashboard-wrapper p-4">
-          <table class="table" id="dataTable">
+          <table class="table" id="heroTable1">
             <thead>
             <tr>
               <th>No</th>
@@ -25,9 +25,9 @@
               <td>Trainers</td>
               <td>Profile</td>
               <td class="d-flex flex-row gap-2">
-                <RouterLink :to="{name:'detailOrder'}">
+                <button data-bs-toggle="modal" data-bs-target="#modalEditNavbar" class="btn p-0">
                   <img src="../../../../../public/img/table/edit-icon.svg" draggable="false" class="icon-table">
-                </RouterLink>
+                </button>
               </td>
             </tr>
             </tbody>
@@ -39,7 +39,7 @@
       <p class="title-font fs-3 text-uppercase">Heroes Table</p>
       <div class="mt-3">
         <div class="card-dashboard-wrapper p-4">
-          <table class="table" id="dataTable">
+          <table class="table" id="heroTable2">
             <thead>
             <tr>
               <th>No</th>
@@ -60,9 +60,9 @@
               <td>Learn More</td>
               <td><img src="../../../../../public/img/table/photo1.png" alt=""></td>
               <td class="d-flex flex-row gap-2">
-                <RouterLink :to="{name:'detailOrder'}">
+                <button data-bs-toggle="modal" data-bs-target="#modalEditHero" class="btn p-0">
                   <img src="../../../../../public/img/table/edit-icon.svg" draggable="false" class="icon-table">
-                </RouterLink>
+                </button>
               </td>
             </tr>
             </tbody>
@@ -71,12 +71,115 @@
       </div>
     </div>
   </div>
+
+  <modal-component title="Edit Navbar Table" modal-id="modalEditNavbar" >
+    <hr class="hr-form mt-4">
+    <form class="modal-form-wrapper d-flex flex-column gap-4 mt-2">
+      <div class="d-flex flex-row justify-content-between">
+        <div class="d-flex flex-column">
+          <p class="input-title">Photo Selection</p>
+          <input type="file"  @change="onFileChange"  name="" class="input-file-modal mt-2" accept="image/*"  id="imgInp">
+        </div>
+        <div class="d-flex flex-column">
+          <p class="input-title">Preview</p>
+          <img id="blah" v-if="url" :src="url"  alt="your image" class="img-preview mt-2"/>
+        </div>
+      </div>
+      <div class="d-flex flex-column">
+        <p class="input-title">Navigation 1</p>
+        <input type="text" class="form-input">
+      </div>
+      <div class="d-flex flex-column">
+        <p class="input-title">Navigation 2</p>
+        <input type="text" class="form-input">
+      </div>
+      <div class="d-flex flex-column">
+        <p class="input-title">Navigation 3</p>
+        <input type="text" class="form-input">
+      </div>
+      <div class="d-flex flex-column">
+        <p class="input-title">Navigation 4</p>
+        <input type="text" class="form-input">
+      </div>
+    </form>
+    <hr class="hr-form mt-4">
+    <div class="d-flex flex-row mt-2 justify-content-end gap-3">
+      <button class="btn btn-close-modal">Cancel</button>
+      <button class="btn btn-color-modal">Save Change</button>
+    </div>
+  </modal-component>
+  <modal-component title="Edit Hero Table" modal-id="modalEditHero" >
+    <hr class="hr-form mt-4">
+    <form class="modal-form-wrapper d-flex flex-column gap-4 mt-1">
+      <div class="d-flex flex-column">
+        <p class="input-title">Hero Title</p>
+        <input type="text" class="form-input">
+      </div>
+      <div class="d-flex flex-column">
+        <p class="input-title">Description</p>
+        <textarea class="form-input"></textarea>
+      </div>
+      <div class="d-flex flex-column">
+        <p class="input-title">Button 1</p>
+        <input type="text" class="form-input">
+      </div>
+      <div class="d-flex flex-column">
+        <p class="input-title">Button 2</p>
+        <input type="text" class="form-input">
+      </div>
+      <div class="d-flex flex-row justify-content-between">
+        <div class="d-flex flex-column">
+          <p class="input-title">Photo Selection</p>
+          <input type="file"  @change="onFileChange"  name="" class="input-file-modal mt-2" accept="image/*"  id="imgInp">
+        </div>
+        <div class="d-flex flex-column">
+          <p class="input-title">Preview</p>
+          <img id="blah" v-if="url" :src="url"  alt="your image" class="img-preview mt-2"/>
+        </div>
+      </div>
+    </form>
+    <hr class="hr-form mt-4">
+    <div class="d-flex flex-row mt-2 justify-content-end gap-3">
+      <button class="btn btn-close-modal">Cancel</button>
+      <button class="btn btn-color-modal">Save Change</button>
+    </div>
+  </modal-component>
 </template>
 
 <script>
-export default {
-  name: "heroIndex"
-}
+  import ModalComponent from "@/components/modalComponent.vue";
+
+  export default {
+    components: {ModalComponent},
+    mounted() {
+      $(document).ready( function () {
+        $('table.table').DataTable({
+          "pageLength": 1,
+          "language": {
+            "paginate": {
+              "next": '<span class="material-symbols-outlined">arrow_forward_ios</span>',
+              "previous": '<span class="material-symbols-outlined">arrow_back_ios </span>'
+            }
+          }
+        });
+      } );
+    },
+    data(){
+      return {
+        url: '/img/logo.svg',
+      }
+    },
+    methods: {
+      onFileChange(e) {
+        const file = e.target.files[0];
+        this.url = URL.createObjectURL(file);
+      }
+    }
+  }
+
+
+
+
 </script>
 
 <style scoped>

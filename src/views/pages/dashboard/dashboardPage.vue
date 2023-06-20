@@ -56,7 +56,20 @@ export default {
       return detailOrder
     }
   },
-  components: {CardDashboard}
+  components: {CardDashboard},
+  mounted() {
+    $(document).ready( function () {
+      $('table.table').DataTable({
+        "pageLength": 1,
+        "language": {
+          "paginate": {
+            "next": '<span class="material-symbols-outlined">arrow_forward_ios</span>',
+            "previous": '<span class="material-symbols-outlined">arrow_back_ios </span>'
+          }
+        }
+      });
+    } );
+  }
 }
 </script>
 

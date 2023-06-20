@@ -14,6 +14,7 @@ import classIndex from "@/views/pages/landingPage/class/classIndex.vue";
 import galleryIndex from "@/views/pages/landingPage/gallery/galleryIndex.vue";
 import testimonyIndex from "@/views/pages/landingPage/testimonial/testimonyIndex.vue";
 import footerIndex from "@/views/pages/landingPage/footer/footerIndex.vue";
+import componentTester from "@/views/pages/componentTester.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -96,6 +97,11 @@ const router = createRouter({
           component: footerIndex
         }
       ]
+    },
+    {
+      path: '/tester',
+      name:componentTester,
+      component:componentTester
     }
   ]
 })

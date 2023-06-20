@@ -19,9 +19,9 @@
               <td class="text-uppercase">Explore our programs to shape your body</td>
               <td><img src="../../../../../public/img/table/photo-service.png" alt=""></td>
               <td class="d-flex flex-row gap-2">
-                <RouterLink :to="{name:'detailOrder'}">
+                <button class="btn p-0" data-bs-toggle="modal" data-bs-target="#modalEditSection">
                   <img src="../../../../../public/img/table/edit-icon.svg" draggable="false" class="icon-table">
-                </RouterLink>
+                </button>
               </td>
             </tr>
             </tbody>
@@ -32,7 +32,7 @@
     <div class="d-flex flex-column mt-5">
       <div class="d-flex flex-row justify-content-between">
         <p class="title-font fs-3 text-uppercase">service Table</p>
-        <button class="btn btn-color">Add Service</button>
+        <button class="btn btn-color" data-bs-toggle="modal" data-bs-target="#modalAddService">Add Service</button>
       </div>
       <div class="mt-4">
         <div class="card-dashboard-wrapper p-4">
@@ -55,12 +55,12 @@
               <td><img src="../../../../../public/img/table/service-icon.svg" alt=""></td>
               <td>Start Now</td>
               <td class="d-flex flex-row gap-2">
-                <RouterLink :to="{name:'detailOrder'}">
+                <button class="btn p-0" data-bs-toggle="modal" data-bs-target="#modalEditService">
                   <img src="../../../../../public/img/table/edit-icon.svg" draggable="false" class="icon-table">
-                </RouterLink>
-                <RouterLink :to="{name:'detailOrder'}">
+                </button>
+                <button class="btn p-0" data-bs-target="#modalDeleteService" data-bs-toggle="modal">
                   <img src="../../../../../public/img/table/delete-icon.svg" draggable="false" class="icon-table">
-                </RouterLink>
+                </button>
               </td>
             </tr>
             </tbody>
@@ -69,11 +69,112 @@
       </div>
     </div>
   </div>
+
+  <modal-component title="Edit Navbar Table" modal-id="modalEditSection" >
+    <hr class="hr-form mt-4">
+    <form class="modal-form-wrapper d-flex flex-column gap-4 mt-2">
+      <div class="d-flex flex-row justify-content-between">
+        <div class="d-flex flex-column">
+          <p class="input-title">Photo Selection</p>
+          <input type="file"  @change="onFileChange"  name="" class="input-file-modal mt-2" accept="image/*"  id="imgInp">
+        </div>
+        <div class="d-flex flex-column">
+          <p class="input-title">Preview</p>
+          <img id="blah" v-if="url" :src="url"  alt="your image" class="img-preview mt-2"/>
+        </div>
+      </div>
+      <div class="d-flex flex-column">
+        <p class="input-title">Navigation 1</p>
+        <input type="text" class="form-input">
+      </div>
+      <div class="d-flex flex-column">
+        <p class="input-title">Navigation 2</p>
+        <input type="text" class="form-input">
+      </div>
+      <div class="d-flex flex-column">
+        <p class="input-title">Navigation 3</p>
+        <input type="text" class="form-input">
+      </div>
+      <div class="d-flex flex-column">
+        <p class="input-title">Navigation 4</p>
+        <input type="text" class="form-input">
+      </div>
+    </form>
+    <hr class="hr-form mt-4">
+    <div class="d-flex flex-row mt-2 justify-content-end gap-3">
+      <button class="btn btn-close-modal">Cancel</button>
+      <button class="btn btn-color-modal">Save Change</button>
+    </div>
+  </modal-component>
+
+  <modal-component title="Edit Navbar Table" modal-id="modalEditService" >
+    <hr class="hr-form mt-4">
+    <form class="modal-form-wrapper d-flex flex-column gap-4 mt-2">
+      <div class="d-flex flex-row justify-content-between">
+        <div class="d-flex flex-column">
+          <p class="input-title">Photo Selection</p>
+          <input type="file"  @change="onFileChange"  name="" class="input-file-modal mt-2" accept="image/*"  id="imgInp">
+        </div>
+        <div class="d-flex flex-column">
+          <p class="input-title">Preview</p>
+          <img id="blah" v-if="url" :src="url"  alt="your image" class="img-preview mt-2"/>
+        </div>
+      </div>
+      <div class="d-flex flex-column">
+        <p class="input-title">Navigation 1</p>
+        <input type="text" class="form-input">
+      </div>
+      <div class="d-flex flex-column">
+        <p class="input-title">Navigation 2</p>
+        <input type="text" class="form-input">
+      </div>
+      <div class="d-flex flex-column">
+        <p class="input-title">Navigation 3</p>
+        <input type="text" class="form-input">
+      </div>
+      <div class="d-flex flex-column">
+        <p class="input-title">Navigation 4</p>
+        <input type="text" class="form-input">
+      </div>
+    </form>
+    <hr class="hr-form mt-4">
+    <div class="d-flex flex-row mt-2 justify-content-end gap-3">
+      <button class="btn btn-close-modal">Cancel</button>
+      <button class="btn btn-color-modal">Save Change</button>
+    </div>
+  </modal-component>
 </template>
 
 <script>
+import ModalComponent from "@/components/modalComponent.vue";
+
 export default {
-  name: "serviceIndex"
+  name: "serviceIndex",
+  components: {ModalComponent},
+  mounted() {
+    $(document).ready( function () {
+      $('table.table').DataTable({
+        "pageLength": 1,
+        "language": {
+          "paginate": {
+            "next": '<span class="material-symbols-outlined">arrow_forward_ios</span>',
+            "previous": '<span class="material-symbols-outlined">arrow_back_ios </span>'
+          }
+        }
+      });
+    } );
+  },
+  data(){
+    return {
+      url: '/img/logo.svg',
+    }
+  },
+  methods: {
+    onFileChange(e) {
+      const file = e.target.files[0];
+      this.url = URL.createObjectURL(file);
+    }
+  }
 }
 </script>
 

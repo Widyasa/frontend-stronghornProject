@@ -7,11 +7,14 @@
 body{
     background: linear-gradient(116.82deg, #242424 0%, #101010 100%) !important;
      font-family: 'Gothic A1', sans-serif;
+    height: 100%;
     min-height:100vh;
     overflow-x: hidden;
     color: white !important;
 }
-
+body::-webkit-scrollbar{
+    display: none;
+}
 /*general style*/
 .fw-medium{
     font-weight: 500 !important;
@@ -34,8 +37,8 @@ p{
 .input-text:focus{
     outline: none;
 }
-.input-text-wrapper{
-    background: rgba(255, 255, 255, 0.02);
+.input-text{
+    background: rgba(255, 255, 255, 0.02) !important;
     padding: 14px 20px;
 }
 .btn{
@@ -68,6 +71,7 @@ p{
 }
 .btn-auth{
     font-family: 'Alfa Slab One', cursive !important;
+    padding: 16px 26px !important;
 }
 .btn-color:hover,.btn-green:hover,.btn-red:hover{
     filter: brightness(107%);
@@ -81,7 +85,9 @@ input:-webkit-autofill:active {
     -webkit-transition-delay: 9999999999999999999999999999999s;
     /*-webkit-background-composite: transparent;*/
 }
-
+.img-auth{
+    max-height: 100vh;
+}
 
 /*the container must be positioned relative:*/
 .custom-select {
@@ -100,7 +106,7 @@ input:-webkit-autofill:active {
 .select-selected:after {
     position: absolute;
     content: "";
-    top: 14px;
+    top: 24px;
     right: 10px;
     width: 0;
     height: 0;
@@ -117,7 +123,7 @@ input:-webkit-autofill:active {
 /*style the items (options), including the selected item:*/
 .select-items div,.select-selected {
     color: #ffffff;
-    padding: 8px 16px;
+    padding: 14px 16px;
     border: 1px solid transparent;
     border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
     cursor: pointer;
@@ -146,7 +152,20 @@ input:-webkit-autofill:active {
 .input-file{
     color: white;
 }
+.input-file-auth::file-selector-button {
+    background: var(--primary-color) !important;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 2px;
+    transition: 0.2s;
 
+}
+
+
+input[type=file]::file-selector-button:hover {
+    filter: brightness(110%);
+}
 /*general style*/
 
 
@@ -266,16 +285,9 @@ input:-webkit-autofill:active {
 .form-search:focus{
     outline: none;
 }
-.search-input-wrapper{
-    border: 1.8px solid var(--brown-color);
-    background-color: #FDFAF7;
-    border-radius: 6px;
-    border-radius: 9999px;
-}
 
-.search-icon{
-    color: var(--brown-color) !important;
-}
+
+
 
 .fa-bars{
     background-color: var(--primary-color);
@@ -307,7 +319,9 @@ input:-webkit-autofill:active {
 }
 /*card dashboard style*/
 
+
 /*TABLE STYLE START*/
+
 .icon-table{
     transition: 0.2s;
 }
@@ -332,8 +346,9 @@ tbody tr td{
     border: none !important;
 }
 .material-symbols-outlined {
-    border: 1px solid var(--primary-color) !important;
-    color:var(--primary-color);
+    border: 1px solid transparent !important;
+    color:white;
+    background: var(--primary-color);
     padding: 6px;
     font-size: 16px;
     border-radius: 5px;
@@ -344,17 +359,19 @@ tbody tr td{
     background: var(--primary-color);
 }
 .dataTables_wrapper .dataTables_paginate .paginate_button{
-    padding: 3px 12px;
+    padding: 3px 12px !important;
     transition: 0.2s;
-    border-radius: 5px;
+    border-radius: 5px !important;
+    /*display: none;*/
 }
 .dataTables_wrapper .dataTables_paginate .paginate_button.current,
 .dataTables_wrapper .dataTables_paginate .paginate_button:hover,
 .dataTables_wrapper .dataTables_paginate .paginate_button.current:hover{
     color: white !important;
     border-radius: 5px;
-    padding: 3px 12px;
-    background-color: var(--primary-color) !important;
+    padding: 8px 12px;
+    background: var(--primary-color) !important;
+    text-decoration: none !important;
 }
 .dataTables_wrapper .dataTables_paginate{
     gap: 12px;
@@ -362,14 +379,13 @@ tbody tr td{
 }
 .dataTables_wrapper .dataTables_paginate .paginate_button.next,
 .dataTables_wrapper .dataTables_paginate .paginate_button.previous{
-    padding: 0;
-    border: 0;
+    padding: 0 !important;
+    border: 0 !important;
 }
 .dataTables_wrapper .dataTables_paginate .paginate_button.next:hover{
     background: transparent !important;
 
 }
-
 .col-sm-12 .col-md-7 .dataTables_paginate{
     width: 100%;
     display: flex;
@@ -443,6 +459,66 @@ tbody tr:nth-child(even){
 
 
 /*modal style*/
+.modal-dialog-centered{
+    width: 600px !important;
+}
+.modal-content{
+    background:  linear-gradient(116.82deg, #242424 0%, #101010 100%);
+    padding: 36px;
+    width: 900px !important;
+
+}
+.btn-modal{
+    background: none;
+    border: none;
+    outline: none;
+}
+.input-title{
+    color: var(--primary-color);
+    font-weight: 500;
+    font-size: 20px !important;
+    text-transform: capitalize;
+}
+.form-input{
+    border: 1px solid var(--primary-color);
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin-top: 10px;
+    background: transparent;
+    color: white;
+}
+.form-input:focus{
+    outline: none;
+}
+.input-file-modal::file-selector-button{
+    background: var(--primary-color);
+    border: none;
+    border-radius: 6px;
+    padding: 8px 18px;
+    color: white;
+}
+.input-file-modal{
+    color: var(--primary-color);
+}
+.img-preview{
+    max-width: 180px;
+    max-height: 50px;
+}
+.btn-close-modal{
+    background: rgba(174, 174, 174, 1) !important;
+    padding: 10px 18px !important;
+    font-family: 'Alfa Slab One', sans-serif !important;
+}
+.btn-color-modal{
+    background: var(--primary-color) !important;
+    padding: 10px 18px;
+    font-family: 'Alfa Slab One', sans-serif !important;
+
+}
+.hr-form{
+    opacity: 100%;
+    color: rgba(255, 255, 255, 0.06);
+}
 /*modal style*/
 
 

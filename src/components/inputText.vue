@@ -1,7 +1,5 @@
 <template>
-    <div class="input-text-wrapper">
       <input :disabled="disabled" :type="input_type"  class="input-text w-100" :placeholder="placeholderValue"/>
-    </div>
 </template>
 
 <script>

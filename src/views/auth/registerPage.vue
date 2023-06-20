@@ -36,13 +36,11 @@
           <div class="d-flex flex-column">
             <p class="text-white text-capitalize">Select Membership:</p>
             <div>
-              <div class="custom-select" style="width:200px;">
+              <div class="custom-select mt-3" style="width:200px;">
                 <select>
-                  <option value="0">Select car:</option>
-                  <option value="1">Audi</option>
-                  <option value="2">BMW</option>
-                  <option value="3">Citroen</option>
-                  <option value="4">Ford</option>
+                  <option value="1">1 month</option>
+                  <option value="2">3 month</option>
+                  <option value="3">6 month</option>
                 </select>
               </div>
             </div>
@@ -53,7 +51,7 @@
             <div class="d-flex flex-column">
               <p class="text-white text-capitalize">Select Membership:</p>
               <div class="">
-                <input type="file" id="file-input" class="text-white d-flex flex-row-reverse">
+                <input type="file" id="file-input" class="text-white mt-3 input-file-auth">
               </div>
             </div>
           </div>
@@ -63,7 +61,7 @@
 
 
       <div class="d-flex flex-md-row flex-column gap-4 align-items-center">
-        <button class="btn btn-color btn-auth w-100" style="max-width: 400px !important;">Login Now</button>
+        <button class="btn btn-color btn-auth w-100" style="max-width: 400px !important;">Join Membership Now</button>
         <p class="text-white ">
           Don’t have account? <span><router-link :to="{name:'register'}" class="main-color link-text">Register</router-link></span>
         </p>

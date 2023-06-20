@@ -8,7 +8,7 @@
       </div>
       <div class="col-xl-1 d-xl-block d-none"></div>
       <div class="col-lg-5 d-lg-block d-none">
-        <img src="../../assets/img/auth/auth-img.png" class="img-fluid" alt="">
+        <img src="../../assets/img/auth/auth-img.png" class="img-auth" alt="">
       </div>
     </div>
   </section>

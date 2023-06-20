@@ -71,10 +71,18 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: "aboutIndex"
-}
+<script setup>
+  $(document).ready( function () {
+    $('table.table').DataTable({
+      "pageLength": 1,
+      "language": {
+        "paginate": {
+          "next": '<span class="material-symbols-outlined">arrow_forward_ios</span>',
+          "previous": '<span class="material-symbols-outlined">arrow_back_ios </span>'
+        }
+      }
+    });
+  } );
 </script>
 
 <style scoped>
