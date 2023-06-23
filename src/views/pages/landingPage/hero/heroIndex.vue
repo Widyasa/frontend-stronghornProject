@@ -4,7 +4,7 @@
       <p class="title-font fs-3 text-uppercase">navbar title</p>
       <div class="mt-3">
         <div class="card-dashboard-wrapper p-4">
-          <table class="table" id="heroTable1">
+          <table class="table" id="tableNavbar" data-paging='false'>
             <thead>
             <tr>
               <th>No</th>
@@ -39,7 +39,7 @@
       <p class="title-font fs-3 text-uppercase">Heroes Table</p>
       <div class="mt-3">
         <div class="card-dashboard-wrapper p-4">
-          <table class="table" id="heroTable2">
+          <table class="table" id="tableHero" data-paging='false'>
             <thead>
             <tr>
               <th>No</th>
@@ -148,21 +148,21 @@
 
 <script>
   import ModalComponent from "@/components/modalComponent.vue";
+  import {onMounted} from "vue";
 
   export default {
     components: {ModalComponent},
-    mounted() {
-      $(document).ready( function () {
-        $('table.table').DataTable({
-          "pageLength": 1,
-          "language": {
-            "paginate": {
-              "next": '<span class="material-symbols-outlined">arrow_forward_ios</span>',
-              "previous": '<span class="material-symbols-outlined">arrow_back_ios </span>'
-            }
-          }
-        });
-      } );
+    setup() {
+      onMounted(() =>{
+        $(document).ready( function () {
+          $('#tableNavbar').DataTable({
+
+          });
+          $('#tableHero').dataTable({
+
+          })
+        } );
+      })
     },
     data(){
       return {

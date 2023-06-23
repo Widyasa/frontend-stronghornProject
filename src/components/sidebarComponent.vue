@@ -8,7 +8,7 @@
       <div class="sidebar-menu-wrapper row pt-4 mt-3 gy-1">
         <div class="col-12">
           <div class="menu-sidebar ps-4 pe-3">
-            <RouterLink :to="{name:'dashboard'}" class="text-white align-items-center d-flex px-3 flex-row menu-wrapper py-3 gap-3 text-decoration-none active">
+            <RouterLink :to="{name:'dashboard'}" class="text-white align-items-center d-flex px-3 flex-row menu-wrapper py-3 gap-3 text-decoration-none" active-class="active">
               <svg width="20" class="svg-sidebar" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M6.58275e-06 10.0063C-0.00625908 4.47995 4.46116 0.00627224 9.99373 6.58275e-06C15.52 -0.00625908 19.9937 4.46116 20 9.99373C20.0063 15.52 15.5388 19.9937 10.0063 20C4.47995 20.0063 0.00627224 15.5388 6.58275e-06 10.0063ZM6.43484 13.5213C6.35965 13.4398 6.2782 13.3521 6.20928 13.2644C5.16918 12.0175 4.77444 10.589 5.10652 8.99749C5.68296 6.22181 8.33333 4.52381 11.109 5.12532C11.2469 5.15664 11.3346 5.13785 11.4348 5.0376C11.8546 4.60527 12.2807 4.18547 12.7068 3.7594C12.7506 3.71554 12.7882 3.65915 12.8383 3.60276C9.79323 2.23685 5.90852 3.20176 3.98497 6.42231C2.17419 9.45489 3.05138 13.0764 5.05013 14.9123C5.50126 14.4549 5.95865 13.9975 6.43484 13.5213ZM14.198 4.35464C14.1479 4.41103 14.0977 4.47995 14.0351 4.54261C12.9323 5.64537 11.8233 6.74812 10.7268 7.85714C10.5764 8.00752 10.4449 8.04511 10.2381 8.02005C8.85965 7.83208 7.71303 9.12281 8.05138 10.4699C8.31454 11.5226 9.32957 12.1679 10.3947 11.9612C11.4223 11.7606 12.1115 10.7832 11.9674 9.72431C11.9424 9.54261 11.9799 9.42356 12.1115 9.29825C13.2331 8.18922 14.3421 7.06767 15.4637 5.95238C15.5263 5.88973 15.6078 5.85213 15.6704 5.80827C15.1629 5.30075 14.6992 4.84336 14.198 4.35464ZM16.3847 7.16792C16.3283 7.22431 16.2657 7.27444 16.2155 7.32456C15.8145 7.72556 15.4135 8.13283 15 8.52757C14.8747 8.65288 14.8434 8.7594 14.8809 8.93484C15.1378 10.0877 15.0063 11.2093 14.4549 12.2494C14.2105 12.7068 13.891 13.1203 13.6028 13.5526C14.0351 13.985 14.4987 14.4486 14.9624 14.9123C17.0426 12.9699 17.5564 9.60526 16.3847 7.16792Z" fill="url(#paint0_linear_452_4)"/>
                 <defs>
@@ -59,31 +59,31 @@
             </div>
             <div class="collapse show px-3 py-3 text-decoration-none flex-column ms-1" id="submenu1" data-bs-parent="#menu">
               <div class="">
-                <RouterLink :to="{name:'heroIndex'}" class="text-white sidebar-accordion text-decoration-none px-0">Hero</RouterLink>
+                <RouterLink  :to="{name:'heroIndex'}" class="text-white sidebar-accordion text-decoration-none px-0" active-class="active">Hero</RouterLink>
               </div>
               <div class="mt-3">
-                <RouterLink :to="{name:'serviceIndex'}" class="text-white sidebar-accordion text-decoration-none px-0">Service</RouterLink>
+                <RouterLink active-class="active" :to="{name:'serviceIndex'}" class="text-white sidebar-accordion text-decoration-none px-0">Service</RouterLink>
               </div>
               <div class="mt-3">
-                <RouterLink :to="{name:'aboutIndex'}" class="text-white sidebar-accordion text-decoration-none px-0">About</RouterLink>
+                <RouterLink active-class="active" :to="{name:'aboutIndex'}" class="text-white sidebar-accordion text-decoration-none px-0">About</RouterLink>
               </div>
               <div class="mt-3">
-                <RouterLink :to="{name:'membershipIndex'}" class="text-white sidebar-accordion text-decoration-none px-0">Membership</RouterLink>
+                <RouterLink active-class="active" :to="{name:'membershipIndex'}" class="text-white sidebar-accordion text-decoration-none px-0">Membership</RouterLink>
               </div>
               <div class="mt-3">
-                <RouterLink :to="{name:'benefitIndex'}" class="text-white sidebar-accordion text-decoration-none px-0">Benefit</RouterLink>
+                <RouterLink active-class="active" :to="{name:'benefitIndex'}" class="text-white sidebar-accordion text-decoration-none px-0">Benefit</RouterLink>
               </div>
               <div class="mt-3">
-                <RouterLink :to="{name:'classIndex'}" class="text-white sidebar-accordion text-decoration-none px-0">Classes</RouterLink>
+                <RouterLink active-class="active" :to="{name:'classIndex'}" class="text-white sidebar-accordion text-decoration-none px-0">Classes</RouterLink>
               </div>
               <div class="mt-3">
-                <RouterLink :to="{name:'galleryIndex'}" class="text-white sidebar-accordion text-decoration-none px-0">Gallery</RouterLink>
+                <RouterLink active-class="active" :to="{name:'galleryIndex'}" class="text-white sidebar-accordion text-decoration-none px-0">Gallery</RouterLink>
               </div>
               <div class="mt-3">
-                <RouterLink :to="{name:'testimonyIndex'}" class="text-white sidebar-accordion text-decoration-none px-0">Testimonial</RouterLink>
+                <RouterLink active-class="active" :to="{name:'testimonyIndex'}" class="text-white sidebar-accordion text-decoration-none px-0">Testimonial</RouterLink>
               </div>
               <div class="mt-3">
-                <RouterLink :to="{name:'footerIndex'}" class="text-white sidebar-accordion text-decoration-none px-0">Footer</RouterLink>
+                <RouterLink active-class="active" :to="{name:'footerIndex'}" class="text-white sidebar-accordion text-decoration-none px-0">Footer</RouterLink>
               </div>
             </div>
           </div>

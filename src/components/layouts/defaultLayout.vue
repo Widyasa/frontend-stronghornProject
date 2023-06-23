@@ -19,7 +19,9 @@ import TopbarComponent from "@/components/topbarComponent.vue";
 export default {
   name: "defaultLayout",
   components: {TopbarComponent, SidebarComponent},
+  computed() {
 
+  }
 }
 </script>
 

@@ -27,7 +27,7 @@ p{
     background: -webkit-linear-gradient(157.1deg, #FFBF77 0%, #FF733C 100%);
     -webkit-background-clip: text;
     -webkit-text-stroke: 2px transparent;
-    color: #ffffff;
+    color: #f7f7f7 !important;
 }
 .input-text{
     background: transparent !important;
@@ -263,12 +263,10 @@ input[type=file]::file-selector-button:hover {
 }
 
 .sidebar-accordion:hover{
-    font-weight: 500;
-    background: var(--primary-color);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    text-fill-color: transparent;
+    color: var(--primary-color) !important;
+}
+.sidebar-accordion.active{
+    color: var(--primary-color) !important;
 }
 /*sidebar style*/
 
@@ -364,14 +362,15 @@ tbody tr td{
     border-radius: 5px !important;
     /*display: none;*/
 }
-.dataTables_wrapper .dataTables_paginate .paginate_button.current,
-.dataTables_wrapper .dataTables_paginate .paginate_button:hover,
-.dataTables_wrapper .dataTables_paginate .paginate_button.current:hover{
+.btn-pagination{
     color: white !important;
     border-radius: 5px;
-    padding: 8px 12px;
+    padding: 4px 6px !important;
     background: var(--primary-color) !important;
     text-decoration: none !important;
+}
+.pagination-number{
+    padding: 6px 13px !important;
 }
 .dataTables_wrapper .dataTables_paginate{
     gap: 12px;
@@ -518,6 +517,14 @@ tbody tr:nth-child(even){
 .hr-form{
     opacity: 100%;
     color: rgba(255, 255, 255, 0.06);
+}
+.delete-desc{
+    color: rgba(174, 174, 174, 1);
+}
+.btn-danger-modal{
+    background: rgba(225, 62, 61, 1) !important;
+    padding: 10px 18px;
+    font-family: 'Alfa Slab One', sans-serif !important;
 }
 /*modal style*/
 

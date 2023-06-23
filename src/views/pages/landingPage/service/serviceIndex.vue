@@ -4,7 +4,7 @@
       <p class="title-font fs-3 text-uppercase">section table</p>
       <div class="mt-3">
         <div class="card-dashboard-wrapper p-4">
-          <table class="table" id="dataTable">
+          <table class="table" id="tableSection" data-paging='false'>
             <thead>
             <tr>
               <th>No</th>
@@ -36,7 +36,7 @@
       </div>
       <div class="mt-4">
         <div class="card-dashboard-wrapper p-4">
-          <table class="table" id="dataTable">
+          <table class="table" id="tableService">
             <thead>
             <tr>
               <th>No</th>
@@ -70,9 +70,41 @@
     </div>
   </div>
 
-  <modal-component title="Edit Navbar Table" modal-id="modalEditSection" >
+  <modal-component title="Edit Section Table" modal-id="modalEditSection" >
     <hr class="hr-form mt-4">
     <form class="modal-form-wrapper d-flex flex-column gap-4 mt-2">
+      <div class="d-flex flex-column">
+        <p class="input-title">Title Section</p>
+        <input type="text" class="form-input">
+      </div>
+      <div class="d-flex flex-row justify-content-between">
+        <div class="d-flex flex-column">
+          <p class="input-title">Icon Service</p>
+          <input type="file"  @change="onFileChange"  name="" class="input-file-modal mt-2" accept="image/*"  id="imgInp">
+        </div>
+        <div class="d-flex flex-column">
+          <p class="input-title">Preview</p>
+          <img id="blah" v-if="url" :src="url"  alt="your image" class="img-preview mt-2"/>
+        </div>
+      </div>
+    </form>
+    <hr class="hr-form mt-4">
+    <div class="d-flex flex-row mt-2 justify-content-end gap-3">
+      <button class="btn btn-close-modal">Cancel</button>
+      <button class="btn btn-color-modal">Save Change</button>
+    </div>
+  </modal-component>
+  <modal-component title="Edit Service Table" modal-id="modalEditService" >
+    <hr class="hr-form mt-4">
+    <form class="modal-form-wrapper d-flex flex-column gap-4 mt-2">
+      <div class="d-flex flex-column">
+        <p class="input-title">Service Name</p>
+        <input type="text" class="form-input">
+      </div>
+      <div class="d-flex flex-column">
+        <p class="input-title">Description</p>
+        <textarea type="text" class="form-input"></textarea>
+      </div>
       <div class="d-flex flex-row justify-content-between">
         <div class="d-flex flex-column">
           <p class="input-title">Photo Selection</p>
@@ -84,19 +116,7 @@
         </div>
       </div>
       <div class="d-flex flex-column">
-        <p class="input-title">Navigation 1</p>
-        <input type="text" class="form-input">
-      </div>
-      <div class="d-flex flex-column">
-        <p class="input-title">Navigation 2</p>
-        <input type="text" class="form-input">
-      </div>
-      <div class="d-flex flex-column">
-        <p class="input-title">Navigation 3</p>
-        <input type="text" class="form-input">
-      </div>
-      <div class="d-flex flex-column">
-        <p class="input-title">Navigation 4</p>
+        <p class="input-title">Button</p>
         <input type="text" class="form-input">
       </div>
     </form>
@@ -106,10 +126,17 @@
       <button class="btn btn-color-modal">Save Change</button>
     </div>
   </modal-component>
-
-  <modal-component title="Edit Navbar Table" modal-id="modalEditService" >
+  <modal-component title="Add Service Table" modal-id="modalAddService" >
     <hr class="hr-form mt-4">
     <form class="modal-form-wrapper d-flex flex-column gap-4 mt-2">
+      <div class="d-flex flex-column">
+        <p class="input-title">Service Name</p>
+        <input type="text" class="form-input">
+      </div>
+      <div class="d-flex flex-column">
+        <p class="input-title">Description</p>
+        <textarea type="text" class="form-input"></textarea>
+      </div>
       <div class="d-flex flex-row justify-content-between">
         <div class="d-flex flex-column">
           <p class="input-title">Photo Selection</p>
@@ -121,48 +148,54 @@
         </div>
       </div>
       <div class="d-flex flex-column">
-        <p class="input-title">Navigation 1</p>
-        <input type="text" class="form-input">
-      </div>
-      <div class="d-flex flex-column">
-        <p class="input-title">Navigation 2</p>
-        <input type="text" class="form-input">
-      </div>
-      <div class="d-flex flex-column">
-        <p class="input-title">Navigation 3</p>
-        <input type="text" class="form-input">
-      </div>
-      <div class="d-flex flex-column">
-        <p class="input-title">Navigation 4</p>
+        <p class="input-title">Button</p>
         <input type="text" class="form-input">
       </div>
     </form>
     <hr class="hr-form mt-4">
     <div class="d-flex flex-row mt-2 justify-content-end gap-3">
       <button class="btn btn-close-modal">Cancel</button>
-      <button class="btn btn-color-modal">Save Change</button>
+      <button class="btn btn-color-modal">Add Service</button>
     </div>
   </modal-component>
+  <delete-modal title="Delete Service Table" modal-id="modalDeleteService">
+    <hr class="hr-form">
+    <p class="delete-desc fw-medium fs-5">
+      Are you sure you want to delete this service table? The process cannot be undo
+    </p>
+    <hr class="hr-form">
+    <div class="d-flex flex-row mt-2 justify-content-end gap-3">
+      <button class="btn btn-close-modal">Cancel</button>
+      <button class="btn btn-danger-modal">Delete Service</button>
+    </div>
+  </delete-modal>
 </template>
 
 <script>
 import ModalComponent from "@/components/modalComponent.vue";
+import DeleteModal from "@/components/deleteModal.vue";
+import {onMounted} from "vue";
+
 
 export default {
-  name: "serviceIndex",
-  components: {ModalComponent},
-  mounted() {
-    $(document).ready( function () {
-      $('table.table').DataTable({
-        "pageLength": 1,
-        "language": {
-          "paginate": {
-            "next": '<span class="material-symbols-outlined">arrow_forward_ios</span>',
-            "previous": '<span class="material-symbols-outlined">arrow_back_ios </span>'
+  components: {DeleteModal, ModalComponent},
+  setup() {
+    onMounted(() =>{
+      $(document).ready( function () {
+        $('#tableSection').DataTable({
+
+        });
+        $('#tableService').dataTable({
+          "pageLength": 10,
+          "language": {
+            "paginate": {
+              "next": '<span class="material-symbols-outlined">arrow_forward_ios</span>',
+              "previous": '<span class="material-symbols-outlined">arrow_back_ios </span>'
+            }
           }
-        }
-      });
-    } );
+        })
+      } );
+    })
   },
   data(){
     return {

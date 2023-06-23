@@ -40,7 +40,7 @@ const router = createRouter({
       component:defaultLayout,
       children:[
         {
-          path: '/',
+          path: '/dashboard',
           name:'dashboard',
           component: dashboardPage
 
