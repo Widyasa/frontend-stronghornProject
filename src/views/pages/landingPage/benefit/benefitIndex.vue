@@ -44,7 +44,7 @@
     </div>
     <div class="d-flex flex-column mt-5">
       <div class="d-flex flex-row justify-content-between">
-        <p class="title-font fs-3 text-uppercase">Achievements Table</p>
+        <p class="title-font fs-3 text-uppercase">Benefit Table</p>
         <button class="btn btn-color" @click="showModalAdd">Add Benefit</button>
       </div>
       <div class="mt-4">
@@ -58,14 +58,14 @@
             </tr>
             </thead>
             <tbody>
-            <tr v-for="(achievement, index) in paginatedData2" :key="index">
-              <td>{{achievement.no}}</td>
-              <td>{{achievement.description}}</td>
+            <tr v-for="(item, index) in paginatedData2" :key="index">
+              <td>{{item.no}}</td>
+              <td>{{item.description}}</td>
               <td class="d-flex flex-row gap-2">
-                <button class="btn border-0 p-0" @click="showModalEdit(achievement)">
+                <button class="btn border-0 p-0" @click="showModalEdit(item)">
                   <img src="../../../../../public/img/table/edit-icon.svg" draggable="false" class="icon-table">
                 </button>
-                <button class="btn border-0 p-0" @click="showModalDelete(achievement.id)">
+                <button class="btn border-0 p-0" @click="showModalDelete(item.id)">
                   <img src="../../../../../public/img/table/delete-icon.svg" draggable="false" class="icon-table">
                 </button>
               </td>
@@ -221,12 +221,12 @@ export default {
       this.modalStatus=false
       $("#addModalBenefit").modal("show");
     },
-    showModalEdit(achievement){
+    showModalEdit(benefit){
       this.modalStatus=true
       $("#editModalBenefit").modal("show");
-      this.achievements.icon = achievement.icon
-      this.achievements.number = achievement.number
-      this.achievements.description = achievement.description
+      this.benefit.icon = benefit.icon
+      this.benefit.number = benefit.number
+      this.benefit.description = benefit.description
     },
     showModalDelete(achievementId){
       $("#deleteModal").modal("show");

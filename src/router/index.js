@@ -15,6 +15,7 @@ import galleryIndex from "@/views/pages/landingPage/gallery/galleryIndex.vue";
 import testimonyIndex from "@/views/pages/landingPage/testimonial/testimonyIndex.vue";
 import footerIndex from "@/views/pages/landingPage/footer/footerIndex.vue";
 import componentTester from "@/views/pages/componentTester.vue";
+import classDetail from "@/views/pages/landingPage/class/classDetail.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -95,7 +96,17 @@ const router = createRouter({
           path: '/landing/footer',
           name:'footerIndex',
           component: footerIndex
-        }
+        },
+        {
+          path: '/landing/class/detail',
+          name:'classDetail',
+          component: classDetail
+        },
+        {
+          path: '/landing/class/detail/day',
+          name:'classDetailDay',
+          component: classDetail
+        },
       ]
     },
     {
