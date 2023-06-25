@@ -16,6 +16,7 @@ import testimonyIndex from "@/views/pages/landingPage/testimonial/testimonyIndex
 import footerIndex from "@/views/pages/landingPage/footer/footerIndex.vue";
 import componentTester from "@/views/pages/componentTester.vue";
 import classDetail from "@/views/pages/landingPage/class/classDetail.vue";
+import dayDetail from "@/views/pages/landingPage/class/dayDetail.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -105,7 +106,7 @@ const router = createRouter({
         {
           path: '/landing/class/detail/day',
           name:'classDetailDay',
-          component: classDetail
+          component: dayDetail
         },
       ]
     },

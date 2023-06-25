@@ -1,10 +1,10 @@
 <template>
   <div class="px-5 pt-5 mb-5">
     <div class="d-flex flex-column">
-      <p class="title-font fs-3 text-uppercase">section table</p>
+      <p class="title-font fs-3 text-uppercase">Section Table</p>
       <div class="mt-3">
         <div class="card-dashboard-wrapper p-4">
-          <table class="table" id="dataTable">
+          <table class="table">
             <thead>
             <tr>
               <th>No</th>
@@ -13,53 +13,221 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-              <td>1</td>
-              <td class="text-uppercase">STRONGHORN GYM GALLERY</td>
+            <tr v-for="(section, index) in paginatedData1" :key="index">
+              <td>{{section.no}}</td>
+              <td>{{section.titleSection}}</td>
               <td class="d-flex flex-row gap-2">
-                <RouterLink :to="{name:'detailOrder'}">
+                <button class="btn p-0" @click="showModalSection">
                   <img src="../../../../../public/img/table/edit-icon.svg" draggable="false" class="icon-table">
-                </RouterLink>
+                </button>
               </td>
             </tr>
             </tbody>
           </table>
+          <div class="d-flex mt-3 flex-row justify-content-center gap-3 align-items-center">
+            <button class="btn btn-pagination border-0" @click="previousPage" :disabled="currentPage === 1">
+              <span class="material-symbols-outlined">arrow_back_ios</span>
+            </button>
+            <div class="d-flex flex-row">
+              <div v-for="page in totalPages1" :key="page">
+                <button class="btn btn-pagination pagination-number border-0" @click="goToPage(page)" :class="{ active: currentPage === page }">{{ page }}</button>
+              </div>
+            </div>
+            <button class="btn btn-pagination border-0" @click="nextPage" :disabled="currentPage === totalPages"><span class="material-symbols-outlined">arrow_forward_ios</span></button>
+          </div>
         </div>
       </div>
     </div>
     <div class="d-flex flex-column mt-5">
-      <p class="title-font fs-3 text-uppercase">Gallery Table</p>
-      <div class="mt-3">
+      <div class="d-flex flex-row justify-content-between">
+        <p class="title-font fs-3 text-uppercase">Gallery Table</p>
+        <button class="btn btn-color" @click="showModalAdd">Add Gallery</button>
+      </div>
+      <div class="mt-4">
         <div class="card-dashboard-wrapper p-4">
-          <table class="table" id="dataTable">
+          <table class="table w-100">
             <thead>
             <tr>
               <th>No</th>
-              <th>Photo Gallery</th>
+              <th>Gallery</th>
               <th></th>
             </tr>
             </thead>
             <tbody>
-            <tr>
-              <td>1</td>
-              <td><img src="/img/table/photo-service.png" alt=""></td>
+            <tr v-for="(item, index) in paginatedData2" :key="index">
+              <td>{{item.no}}</td>
+              <td><img :src="item.image" alt=""></td>
               <td class="d-flex flex-row gap-2">
-                <RouterLink :to="{name:'detailOrder'}">
-                  <img src="/img/table/edit-icon.svg" draggable="false" class="icon-table">
-                </RouterLink>
+                <button class="btn border-0 p-0" @click="showModalEdit(item)">
+                  <img src="../../../../../public/img/table/edit-icon.svg" draggable="false" class="icon-table">
+                </button>
+                <button class="btn border-0 p-0" @click="showModalDelete(item.id)">
+                  <img src="../../../../../public/img/table/delete-icon.svg" draggable="false" class="icon-table">
+                </button>
               </td>
             </tr>
             </tbody>
           </table>
+          <div class="d-flex mt-3 flex-row justify-content-center gap-3 align-items-center">
+            <button class="btn btn-pagination border-0" @click="previousPage" :disabled="currentPage === 1">
+              <span class="material-symbols-outlined">arrow_back_ios</span>
+            </button>
+            <div class="d-flex flex-row">
+              <div v-for="page in totalPages1" :key="page">
+                <button class="btn btn-pagination pagination-number border-0" @click="goToPage(page)" :class="{ active: currentPage === page }">{{ page }}</button>
+              </div>
+            </div>
+            <button class="btn btn-pagination border-0" @click="nextPage" :disabled="currentPage === totalPages"><span class="material-symbols-outlined">arrow_forward_ios</span></button>
+          </div>
         </div>
       </div>
     </div>
   </div>
+  <modal-component title="Edit Section Table" modal-id="modalSection" >
+    <hr class="hr-form mt-4">
+    <form class="modal-form-wrapper d-flex flex-column gap-4 mt-2">
+      <div class="d-flex flex-column">
+        <p class="input-title">Title Section</p>
+        <input type="text" class="form-input">
+      </div>
+    </form>
+    <hr class="hr-form mt-4">
+    <div class="d-flex flex-row mt-2 justify-content-end gap-3">
+      <button class="btn btn-close-modal">Cancel</button>
+      <button class="btn btn-color-modal">Save Change</button>
+    </div>
+  </modal-component>
+  <modal-component title="Add Gallery" modal-id="addModalGallery" >
+    <hr class="hr-form mt-4">
+    <form class="modal-form-wrapper d-flex flex-column gap-4 mt-2">
+      <div class="d-flex flex-row justify-content-between">
+        <div class="d-flex flex-column">
+          <p class="input-title">Gallery Image</p>
+          <input type="file"  @change="onFileChange"  name="" class="input-file-modal mt-2" accept="image/*"  id="imgInp">
+        </div>
+        <div class="d-flex flex-column">
+          <p class="input-title">Preview</p>
+          <img id="blah" v-if="url" :src="url"  alt="your image" class="img-preview mt-2"/>
+        </div>
+      </div>
+    </form>
+    <hr class="hr-form mt-4">
+    <div class="d-flex flex-row mt-2 justify-content-end gap-3">
+      <button class="btn btn-close-modal">Cancel</button>
+      <button class="btn btn-color-modal">Add Gallery</button>
+    </div>
+  </modal-component>
+  <modal-component title="Edit Gallery" modal-id="editModalGallery" >
+    <hr class="hr-form mt-4">
+    <form class="modal-form-wrapper d-flex flex-column gap-4 mt-2">
+      <div class="d-flex flex-row justify-content-between">
+        <div class="d-flex flex-column">
+          <p class="input-title">Gallery Image</p>
+          <input type="file"  @change="onFileChange"  name="" class="input-file-modal mt-2" accept="image/*"  id="imgInp">
+        </div>
+        <div class="d-flex flex-column">
+          <p class="input-title">Preview</p>
+          <img id="blah" v-if="url" :src="url"  alt="your image" class="img-preview mt-2"/>
+        </div>
+      </div>
+    </form>
+    <hr class="hr-form mt-4">
+    <div class="d-flex flex-row mt-2 justify-content-end gap-3">
+      <button class="btn btn-close-modal">Cancel</button>
+      <button class="btn btn-color-modal">Save Change</button>
+    </div>
+  </modal-component>
+  <delete-modal title="Delete Benefit Table" modal-id="deleteModal">
+    <hr class="hr-form">
+    <p class="delete-desc fw-medium">
+      Are you sure you want to delete this Gallery table? The process cannot be undo
+    </p>
+    <hr class="hr-form">
+    <div class="d-flex flex-row mt-2 justify-content-end gap-3">
+      <button class="btn btn-close-modal">Cancel</button>
+      <button type="button" class="btn btn-danger-modal">Delete Gallery</button>
+    </div>
+  </delete-modal>
 </template>
 
 <script>
+import ModalComponent from "@/components/modalComponent.vue";
+import DeleteModal from "@/components/deleteModal.vue";
+
 export default {
-  name: "galleryIndex"
+  name: "aboutIndex",
+  components: {DeleteModal, ModalComponent},
+  data(){
+    return {
+      url: '/img/logo.svg',
+      itemsPerPage: 10, // Jumlah item per halaman
+      currentPage: 1, // Halaman saat ini
+      section: [
+        {id:1, no: 1, titleSection: "Stronghorn Gym Gallery", },
+      ],
+      gallery: [
+        {id:1, no:1, image:"/img/table/photo1.png"}
+      ],
+      modalStatus: false,
+      idAchievement:''
+    }
+  },
+  computed: {
+    paginatedData1() {
+      const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+      const endIndex = startIndex + this.itemsPerPage;
+      return this.section.slice(startIndex, endIndex);
+    },
+    totalPages1() {
+      return Math.ceil(this.section.length / this.itemsPerPage);
+    },
+    paginatedData2() {
+      const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+      const endIndex = startIndex + this.itemsPerPage;
+      return this.gallery.slice(startIndex, endIndex);
+    },
+    totalPages2() {
+      return Math.ceil(this.gallery.length / this.itemsPerPage);
+    }
+  },
+  methods: {
+    onFileChange(e) {
+      const file = e.target.files[0];
+      this.url = URL.createObjectURL(file);
+    },
+    previousPage() {
+      if (this.currentPage > 1) {
+        this.currentPage--;
+      }
+    },
+    nextPage() {
+      if (this.currentPage < this.totalPages) {
+        this.currentPage++;
+      }
+    },
+    goToPage(page) {
+      this.currentPage = page;
+    },
+    showModalSection() {
+      $("#modalSection").modal("show");
+    },
+    showModalAdd(){
+      this.modalStatus=false
+      $("#addModalGallery").modal("show");
+    },
+    showModalEdit(benefit){
+      this.modalStatus=true
+      $("#editModalGallery").modal("show");
+      this.benefit.icon = benefit.icon
+      this.benefit.number = benefit.number
+      this.benefit.description = benefit.description
+    },
+    showModalDelete(achievementId){
+      $("#deleteModal").modal("show");
+      this.idAchievement = achievementId
+      console.log(this.idAchievement)
+    }
+  }
 }
 </script>
 
