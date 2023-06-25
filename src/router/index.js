@@ -17,6 +17,10 @@ import footerIndex from "@/views/pages/landingPage/footer/footerIndex.vue";
 import componentTester from "@/views/pages/componentTester.vue";
 import classDetail from "@/views/pages/landingPage/class/classDetail.vue";
 import dayDetail from "@/views/pages/landingPage/class/dayDetail.vue";
+import trainerIndex from "@/views/pages/trainers/trainerIndex.vue";
+import trainerDetail from "@/views/pages/trainers/trainerDetail.vue";
+import userIndex from "@/views/pages/user/userIndex.vue";
+import userDetail from "@/views/pages/user/userDetail.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -107,6 +111,26 @@ const router = createRouter({
           path: '/landing/class/detail/day',
           name:'classDetailDay',
           component: dayDetail
+        },
+        {
+          path: '/trainers',
+          name:'trainerIndex',
+          component: trainerIndex
+        },
+        {
+          path: '/trainers/detail',
+          name:'trainerDetail',
+          component: trainerDetail
+        },
+        {
+          path: '/users',
+          name:'userIndex',
+          component: userIndex
+        },
+        {
+          path: '/users/detail',
+          name:'userDetail',
+          component: userDetail
         },
       ]
     },
