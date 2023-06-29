@@ -26,7 +26,7 @@
               <td>{{item.email}}</td>
               <td>{{item.phoneNumber}}</td>
               <td class="d-flex flex-row gap-2">
-                <router-link :to="{name:'classDetail'}" class="btn border-0 p-0">
+                <router-link :to="{name:'trainerDetail'}" class="btn border-0 p-0">
                   <img src="/img/table/detail-icon.svg" draggable="false" class="icon-table w-100 h-100">
                 </router-link>
                 <button class="btn border-0 p-0" @click="showModalEdit(item)">

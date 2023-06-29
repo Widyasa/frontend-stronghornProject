@@ -232,6 +232,10 @@ input[type=file]::file-selector-button:hover {
 .accordion-menu-wrapper:not(.collapsed) .svg-sidebar defs linearGradient stop:nth-child(1){
     stop-color:var(--primary-color) !important;
 }
+.menu-wrapper:hover .svg-sidebar path,
+.menu-wrapper.active .svg-sidebar path{
+    fill: var(--primary-color);
+}
 .menu-wrapper.active .svg-sidebar defs linearGradient stop:nth-child(2),
 .accordion-menu-wrapper.active .svg-sidebar defs linearGradient stop:nth-child(2),
 .menu-wrapper:hover .svg-sidebar defs linearGradient stop:nth-child(2),

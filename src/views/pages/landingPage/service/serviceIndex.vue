@@ -179,33 +179,74 @@ import {onMounted} from "vue";
 
 export default {
   components: {DeleteModal, ModalComponent},
-  setup() {
-    onMounted(() =>{
-      $(document).ready( function () {
-        $('#tableSection').DataTable({
 
-        });
-        $('#tableService').dataTable({
-          "pageLength": 10,
-          "language": {
-            "paginate": {
-              "next": '<span class="material-symbols-outlined">arrow_forward_ios</span>',
-              "previous": '<span class="material-symbols-outlined">arrow_back_ios </span>'
-            }
-          }
-        })
-      } );
-    })
-  },
   data(){
     return {
       url: '/img/logo.svg',
+      itemsPerPage: 10, // Jumlah item per halaman
+      currentPage: 1, // Halaman saat ini
+      section: [
+        {id:1, no: 1, titleSection: "Explore our programs to shape your body", image:"/img/table/photo-service.png" },
+      ],
+      service: [
+        {id:1, no:1, photo:'/img/table/photo1.png', name:"Ivan Verdyansyah", email:"ipan@gresia.date", phoneNumber:"0123456789"}
+      ],
+    }
+  },
+  computed:{
+    paginatedData1() {
+      const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+      const endIndex = startIndex + this.itemsPerPage;
+      return this.section.slice(startIndex, endIndex);
+    },
+    totalPages1() {
+      return Math.ceil(this.section.length / this.itemsPerPage);
+    },
+    paginatedData2() {
+      const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+      const endIndex = startIndex + this.itemsPerPage;
+      return this.service.slice(startIndex, endIndex);
+    },
+    totalPages2() {
+      return Math.ceil(this.service.length / this.itemsPerPage);
     }
   },
   methods: {
     onFileChange(e) {
       const file = e.target.files[0];
       this.url = URL.createObjectURL(file);
+    },
+    previousPage() {
+      if (this.currentPage > 1) {
+        this.currentPage--;
+      }
+    },
+    nextPage() {
+      if (this.currentPage < this.totalPages) {
+        this.currentPage++;
+      }
+    },
+    goToPage(page) {
+      this.currentPage = page;
+    },
+    showModalSection() {
+      $("#modalSection").modal("show");
+    },
+    showModalAdd(){
+      this.modalStatus=false
+      $("#modalAddService").modal("show");
+    },
+    showModalEdit(item){
+      this.modalStatus=true
+      $("#editModalClass").modal("show");
+      this.achievements.icon = item.icon
+      this.achievements.number = item.number
+      this.achievements.description = item.description
+    },
+    showModalDelete(achievementId){
+      $("#deleteModal").modal("show");
+      this.idAchievement = achievementId
+      console.log(this.idAchievement)
     }
   }
 }
